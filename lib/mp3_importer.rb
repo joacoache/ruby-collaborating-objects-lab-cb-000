@@ -6,8 +6,7 @@ class MP3Importer
   end
 
   def files
-    @files = Dir.entries(@path)
-    @files.grep(/mp3/)
+    files = Dir.entries(@path).reject{|entry| entry == "." || entry == ".."}
   end
 
   def import
